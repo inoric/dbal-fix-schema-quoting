@@ -613,7 +613,7 @@ SQL;
         $sql = 'SELECT';
 
         if ($tableName === null) {
-            $sql .= ' c.relname AS table_name, n.nspname AS schema_name,';
+            $sql .= ' quote_ident(c.relname) AS table_name, n.nspname AS schema_name,';
         }
 
         $sql .= <<<'SQL'
@@ -669,7 +669,7 @@ SQL;
         $sql = 'SELECT';
 
         if ($tableName === null) {
-            $sql .= ' tc.relname AS table_name, tn.nspname AS schema_name,';
+            $sql .= ' quote_ident(tc.relname) AS table_name, tn.nspname AS schema_name,';
         }
 
         $sql .= <<<'SQL'
